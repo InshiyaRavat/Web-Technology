@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="FacultyInfoICT.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:Table BackColor="WhiteSmoke" BorderColor="#000066" Width="100%" Height="100%" BorderWidth="2px" runat="server">
+            <asp:TableRow Height="20%" Font-Bold="true" Font-Italic="true" BackColor="#99ccff" ForeColor="#0033cc" Font-Size="Large">
+                <asp:TableCell>DDU FACULTY INFORMATION</asp:TableCell> 
+            </asp:TableRow>
+            <asp:TableRow Height="70%">
+                <asp:TableCell>
+                    <div>
+                        <div>
+                            <asp:CheckBoxList ID="dept" AutoPostBack="true" runat="server" BackColor="#6699ff" BorderStyle="Solid">
+                            <asp:ListItem>IT</asp:ListItem>
+                            <asp:ListItem>CE</asp:ListItem>
+                            <asp:ListItem>EC</asp:ListItem>
+                            </asp:CheckBoxList>
+                        </div>
+                        <div>                            
+                             <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                             </asp:ContentPlaceHolder>
+                        </div>
+                    </div>                                         
+                </asp:TableCell>                                                          
+            </asp:TableRow>
+            <asp:TableRow Height="10%" BackColor="#99ccff" ForeColor="#0033cc" Font-Size="Medium">
+                <asp:TableCell>@Copyright All rights reserved by Dharmsinh Desai University</asp:TableCell>            
+            </asp:TableRow>
+        </asp:Table>
+    </form>
+</body>
+</html>
