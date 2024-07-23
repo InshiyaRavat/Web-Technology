@@ -16,18 +16,18 @@
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableHeaderCell>Number 2:</asp:TableHeaderCell>
-                    <asp:TableCell runat="server"><asp:TextBox ID="n2" runat="server"></asp:TextBox></asp:TableCell>
+                    <asp:TableCell runat="server"><asp:TextBox ID="n2" runat="server" AutoPostBack="true" OnTextChanged="n2_TextChanged" ></asp:TextBox></asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell runat="server">
-                        <asp:Button ID="btnadd" OnClick="btnadd_Click" Text="ADD" runat="server" />
-                        <asp:Button ID="btnsub" OnClick="btnsub_Click" Text="SUB" runat="server" />
+                        <asp:Button ID="btnadd" OnCommand="btn_Command" CommandName="add" CommandArgument="+" Text="ADD" runat="server" />
+                        <asp:Button ID="btnsub" OnCommand="btn_Command" CommandArgument="-" CommandName="sub" Text="SUB" runat="server" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell runat="server">
-                        <asp:Button ID="btnmul" OnClick="btnmul_Click" Text="MUL" runat="server" />
-                        <asp:Button ID="btndiv" OnClick="btndiv_Click" Text="DIV" runat="server" />
+                        <asp:Button ID="btnmul" OnCommand="btn_Command" CommandName="mul" CommandArgument="*" Text="MUL" runat="server" />
+                        <asp:Button ID="btndiv" OnCommand="btn_Command" CommandArgument="/" CommandName="div" Text="DIV" runat="server" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>

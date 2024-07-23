@@ -14,36 +14,48 @@ namespace BasicCalculator
 
         }
 
-        protected void btnadd_Click(object sender, EventArgs e)
+        protected void btn_Command(object sender, CommandEventArgs e)
         {
             int a = Convert.ToInt16(((TextBox)n1).Text);
             int b = Convert.ToInt16(((TextBox)n2).Text);
-            int c =  a+ b;
-           lblans.Text = c.ToString();
-        }
-
-        protected void btnsub_Click(object sender, EventArgs e)
-        {
-            int a = Convert.ToInt16(((TextBox)n1).Text);
-            int b = Convert.ToInt16(((TextBox)n2).Text);
-            int c = a - b;
+            int c=0;
+             
+            
+            if (e.CommandName == "add")
+            {
+                c = a + b;
+            }
+            else if (e.CommandName == "sub")
+            {
+                c = a - b;
+            }
+            else if(e.CommandName == "mul")
+            {
+                c = a * b;
+            }
+            else if (e.CommandName == "div" && b!=0)
+            {
+                c = a / b;
+            }
             lblans.Text = c.ToString();
         }
 
-        protected void btnmul_Click(object sender, EventArgs e)
+        protected void n2_TextChanged(object sender, EventArgs e)
         {
-            int a = Convert.ToInt16(((TextBox)n1).Text);
-            int b = Convert.ToInt16(((TextBox)n2).Text);
-            int c = a * b;
-            lblans.Text = c.ToString();
-        }
+            //int b = Convert.ToInt16(((TextBox)n2).Text);
 
-        protected void btndiv_Click(object sender, EventArgs e)
-        {
-            int a = Convert.ToInt16(((TextBox)n1).Text);
-            int b = Convert.ToInt16(((TextBox)n2).Text);
-            int c = a / b;
-            lblans.Text = c.ToString();
+            if (n2.Text == "0")
+            {
+                lblans.ForeColor = System.Drawing.Color.Red;
+                btndiv.Enabled = false;
+                lblans.Text = "Number2 must not be 0";
+            }
+            else
+            {
+                btndiv.Enabled = true;
+                lblans.Text = "";
+                lblans.ForeColor= System.Drawing.Color.Black;
+            }
         }
     }
 }
