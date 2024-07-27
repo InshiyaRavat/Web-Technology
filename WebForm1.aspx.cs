@@ -98,7 +98,24 @@ namespace RegistrationForm
 
         protected void btn_Click(object sender, EventArgs e)
         {
-            lblresult.Text = "Name: "+ Name.Text + "<br/>" + "Email: " + Email.Text + "<br/>" + "Phone No.: " + Mobile.Text +"<br/>" + "Country: " + Country.SelectedValue + "<br/>" + "State: " + State.SelectedValue + "<br/>" + "City: " + City.SelectedValue + "<br/>" + "Certifiates: " + Cbl.SelectedValue + "<br/>" + "Gender: " + Gender.SelectedValue;
+            if (Page.IsValid)
+            {
+                lblresult.Text = "Name: " + Name.Text + "<br/>" + "Email: " + Email.Text + "<br/>" + "Phone No.: " + Mobile.Text + "<br/>" + "Country: " + Country.SelectedValue + "<br/>" + "State: " + State.SelectedValue + "<br/>" + "City: " + City.SelectedValue + "<br/>" + "Certifiates: " + Cbl.SelectedValue + "<br/>" + "Gender: " + Gender.SelectedValue;
+            }
+            else
+            {
+                lblresult.Text = "";
+            }
+        }
+
+        protected void RequiredFieldValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = false;
+
+            if (Cbl.SelectedIndex >= 0)
+            {
+                args.IsValid = true;
+            }
         }
     }
 }
