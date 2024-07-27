@@ -100,7 +100,7 @@ namespace RegistrationForm
         {
             if (Page.IsValid)
             {
-                lblresult.Text = "Name: " + Name.Text + "<br/>" + "Email: " + Email.Text + "<br/>" + "Phone No.: " + Mobile.Text + "<br/>" + "Country: " + Country.SelectedValue + "<br/>" + "State: " + State.SelectedValue + "<br/>" + "City: " + City.SelectedValue + "<br/>" + "Certifiates: " + Cbl.SelectedValue + "<br/>" + "Gender: " + Gender.SelectedValue;
+                lblresult.Text = "<br/>" + "Name: " + Name.Text + "<br/>" + "Email: " + Email.Text + "<br/>" + "Phone No.: " + Mobile.Text + "<br/>" + "Country: " + Country.SelectedValue + "<br/>" + "State: " + State.SelectedValue + "<br/>" + "City: " + City.SelectedValue + "<br/>" + "Certifiates: " + Cbl.SelectedValue + "<br/>" + "Gender: " + Gender.SelectedValue + "<br/>" + "DOB :" + cal1.SelectedDate.ToString();
             }
             else
             {
@@ -115,6 +115,24 @@ namespace RegistrationForm
             if (Cbl.SelectedIndex >= 0)
             {
                 args.IsValid = true;
+            }
+        }
+
+        protected void btn_cal_Click(object sender, EventArgs e)
+        {
+            cal1.Visible = !(cal1.Visible);
+            btn_cal.Text = cal1.Visible == true ? "hide calender" : "show calender";
+        }
+
+        protected void cal1_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.Date > DateTime.Today)
+            {
+                e.Day.IsSelectable = false;
+            }
+            if (e.Day.IsOtherMonth)
+            {
+                e.Day.IsSelectable = false;
             }
         }
     }

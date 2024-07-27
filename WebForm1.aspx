@@ -93,6 +93,17 @@
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" InitialValue="" ControlToValidate="Gender" runat="server" ForeColor="Red" ErrorMessage="You must select one gender6" SetFocusOnError="true"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        Date Of Birth
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button Text="Show Calender" OnClick="btn_cal_Click" runat="server" ID="btn_cal"/>                        
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Calendar ID="cal1" runat="server" Visible="false" BackColor="WhiteSmoke" Caption="DOB" DayHeaderStyle-BorderColor="Yellow" DayNameFormat="FirstLetter" FirstDayOfWeek="Sunday" NextMonthText=">>" PrevMonthText="<<" OtherMonthDayStyle-BackColor="#666699" SelectedDayStyle-BackColor="#0000ff" OnDayRender="cal1_DayRender"></asp:Calendar>
+                    </asp:TableCell>
+                </asp:TableRow>
             </asp:Table>
             <asp:Button ID="btn" runat="server" Text="Submit" OnClick="btn_Click"/>
             <asp:Label ID="lblresult" runat="server"></asp:Label>
